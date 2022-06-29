@@ -263,5 +263,27 @@
         ctx.fillRect(180, 50, 75, 50);
       </script>
     </section>
+
+<section>
+  <canvas id="canvas" width="400" height="400"
+style="background-color:#333">
+</canvas>
+
+<script>
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var radius = canvas.height / 2;
+ctx.translate(radius, radius);
+radius = radius * 0.90
+drawClock();
+
+function drawClock() {
+  ctx.arc(3, 0, radius, 0 , 2*Math.PI);
+  ctx.fillStyle = "white";
+  ctx.fill();
+}
+</script>
+</section>
+
   </body>
 </html>
