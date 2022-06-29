@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"/>
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link />
+  </head>
+  <body>
+    <div>
+      <h2>CANVAS TEXT</h2>
+    </div>
+    <section>
+      <canvas
+        class="bg-canvas"
+        id="ca-Canvas"
+        width="200"
+        height="100"
+        style="border: 1px solid #d3d3d3"
+      ></canvas>
+
+      <script>
+        var c = document.getElementById("ca-Canvas");
+        var ctx = c.getContext("2d");
+        ctx.font = "30px Arial";
+        ctx.fillText("Hello World", 10, 50);
+      </script>
+    </section>
+    <section>
+      <canvas
+        class="bg-canvas"
+        id="canvas-text"
+        width="200"
+        height="100"
+        style="border: 1px solid #d3d3d3"
+      >
+      </canvas>
+
+      <script>
+        var canvas = document.getElementById("canvas-text");
+        var ctx = canvas.getContext("2d");
+        ctx.font = "30px Arial";
+        ctx.strokeText("Hello World", 10, 50);
+      </script>
+    </section>
+    <div>
+      <h2>CANVAS COORDINATES</h2>
+    </div>
+    <section>
+      <canvas
+        class="bg-canvas"
+        id="round"
+        width="200"
+        height="100"
+        style="border: 1px solid #d3d3d3"
+      ></canvas>
+
+      <script>
+        var c = document.getElementById("round");
+        var ctx = c.getContext("2d");
+        ctx.beginPath();
+        ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+        ctx.stroke();
+      </script>
+    </section>
+
+    <section>
+      <canvas
+        class="bg-canvas"
+        id="Line"
+        width="200"
+        height="100"
+        style="border: 3px solid #d3d3d3"
+      ></canvas>
+
+      <script>
+        var c = document.getElementById("Line");
+        var ctx = c.getContext("2d");
+        ctx.moveTo(0, 0);
+        ctx.lineTo(200, 100);
+        ctx.stroke();
+      </script>
+    </section>
+    <div>
+      <h2>CANVAS GRADIENT</h2>
+    </div>
+    <section>
+      <canvas
+        class="bg-canvas"
+        id="Canvas"
+        width="200"
+        height="100"
+        style="border: 1px solid #d3d3d3"
+      ></canvas>
+
+      <script>
+        var c = document.getElementById("Canvas");
+        var ctx = c.getContext("2d");
+
+        var grd = ctx.createLinearGradient(0, 0, 200, 0);
+        grd.addColorStop(0, "red");
+        grd.addColorStop(1, "white");
+
+        ctx.fillStyle = grd;
+        ctx.fillRect(10, 10, 150, 80);
+      </script>
+    </section>
+    <section>
+      <canvas
+        id="gradient"
+        class="bg-canvas"
+        width="200"
+        height="100"
+        style="border: 1px solid #d3d3d3"
+      ></canvas>
+
+      <script>
+        var c = document.getElementById("gradient");
+        var ctx = c.getContext("2d");
+        var grd = ctx.createRadialGradient(75, 50, 5, 90, 60, 100);
+        grd.addColorStop(0, "red");
+        grd.addColorStop(1, "white");
+        ctx.fillStyle = grd;
+        ctx.fillRect(10, 10, 150, 80);
+      </script>
+    </section>
+    <div>
+      <h2>CANVAS IMAGE</h2>
+    </div>
+    <section>
+      <h3>Image to use:</h3>
+
+      <img
+        id="scream"
+        src="./img/image10.png"
+        alt="The Scream"
+        width="220"
+        height="277"
+      />
+
+      <h3>Canvas to fill:</h3>
+      <canvas
+        id="myCanvas"
+        width="250"
+        height="300"
+        style="border: 1px solid #d3d3d3"
+      ></canvas>
+
+      <p><button class="btn-style" onclick="myCanvas()">Try it</button></p>
+
+      <script>
+        function myCanvas() {
+          var c = document.getElementById("myCanvas");
+          var ctx = c.getContext("2d");
+          var img = document.getElementById("scream");
+          ctx.drawImage(img, 10, 10);
+        }
+      </script>
+    </section>
+    <section>
+      <canvas
+        id="shadow"
+        width="700"
+        height="400"
+        style="border: 1px solid #d3d3d3"
+      ></canvas>
+
+      <script>
+        var c = document.getElementById("shadow");
+        var ctx = c.getContext("2d");
+        ctx.shadowBlur = 20;
+        ctx.shadowOffsetX = 50;
+        ctx.fillStyle = "GreenYellow";
+        ctx.shadowColor = "Yellow";
+        ctx.fillRect(15, 20, 100, 80);
+
+        ctx.fillStyle = "LightCoral";
+        ctx.shadowColor = "salmon";
+        ctx.fillRect(170, 110, 100, 80);
+
+        ctx.fillStyle = "blue";
+        ctx.shadowColor = "#008B8B";
+        ctx.fillRect(320, 200, 100, 80);
+
+        ctx.fillStyle = "#008B8B";
+        ctx.shadowColor = "Turquoise";
+        ctx.fillRect(480, 290, 100, 80);
+      </script>
+    </section>
+    <section>
+      <canvas id="image" width="300" height="150" style="border:1px solid #d3d3d3;">
+        Your browser does not support the HTML5 canvas tag.</canvas>
+        
+        <script>
+        var c = document.getElementById("image");
+        var ctx = c.getContext("2d");
+        var imgData = ctx.createImageData(100, 100);
+        
+        var i;
+        for (i = 0; i < imgData.data.length; i += 7) {
+          imgData.data[i+0] = 200;
+          imgData.data[i+1] = 10;
+          imgData.data[i+3] = 10;
+          imgData.data[i+7] = 200;
+        }
+        
+        ctx.putImageData(imgData, 10, 10);
+        </script>
+    </section>
+
+    <section>
+      <canvas id="globalAlpha" width="300" height="150" style="border:1px solid #d3d3d3;">
+        Your browser does not support the HTML5 canvas tag.</canvas>
+        
+        <script>
+        var c = document.getElementById("globalAlpha");
+        var ctx = c.getContext("2d");
+        ctx.fillStyle = "red";
+        ctx.fillRect(20, 20, 75, 50);
+        
+        //Turn transparency on
+        ctx.globalAlpha = 0.2;
+        ctx.fillStyle = "blue"; 
+        ctx.fillRect(50, 50, 75, 50); 
+        ctx.fillStyle = "green"; 
+        ctx.fillRect(80, 80, 75, 50);
+        </script>
+    </section>
+  </body>
+</html>
