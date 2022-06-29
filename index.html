@@ -8,7 +8,8 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
-      crossorigin="anonymous"/>
+      crossorigin="anonymous"
+    />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
     <link />
@@ -195,43 +196,52 @@
       </script>
     </section>
     <section>
-      <canvas id="image" width="300" height="150" style="border:1px solid #d3d3d3;">
-        Your browser does not support the HTML5 canvas tag.</canvas>
-        
-        <script>
+      <canvas
+        id="image"
+        width="300"
+        height="150"
+        style="border: 1px solid #d3d3d3"
+      >
+        Your browser does not support the HTML5 canvas tag.</canvas
+      >
+
+      <script>
         var c = document.getElementById("image");
         var ctx = c.getContext("2d");
         var imgData = ctx.createImageData(100, 100);
-        
+
         var i;
         for (i = 0; i < imgData.data.length; i += 7) {
-          imgData.data[i+0] = 200;
-          imgData.data[i+1] = 10;
-          imgData.data[i+3] = 10;
-          imgData.data[i+7] = 200;
+          imgData.data[i + 0] = 200;
+          imgData.data[i + 1] = 10;
+          imgData.data[i + 3] = 10;
+          imgData.data[i + 7] = 200;
         }
-        
+
         ctx.putImageData(imgData, 10, 10);
-        </script>
+      </script>
     </section>
 
     <section>
-      <canvas id="globalAlpha" width="300" height="150" style="border:1px solid #d3d3d3;">
-        Your browser does not support the HTML5 canvas tag.</canvas>
-        
-        <script>
+      <canvas
+        id="globalAlpha"
+        width="300"
+        height="150"
+        style="border: 1px solid #d3d3d3"
+      ></canvas>
+      <script>
         var c = document.getElementById("globalAlpha");
         var ctx = c.getContext("2d");
         ctx.fillStyle = "red";
         ctx.fillRect(20, 20, 75, 50);
-        
+
         //Turn transparency on
         ctx.globalAlpha = 0.2;
-        ctx.fillStyle = "blue"; 
-        ctx.fillRect(50, 50, 75, 50); 
-        ctx.fillStyle = "green"; 
+        ctx.fillStyle = "blue";
+        ctx.fillRect(50, 50, 75, 50);
+        ctx.fillStyle = "green";
         ctx.fillRect(80, 80, 75, 50);
-        </script>
+      </script>
     </section>
   </body>
 </html>
